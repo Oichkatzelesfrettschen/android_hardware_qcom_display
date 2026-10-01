@@ -87,7 +87,7 @@ public:
  *
  * For example, to dump 25 frames in raw format, do,
  *     adb shell setprop debug.sf.dump 25
- * Layers are dumped in a time-stamped location: /data/sfdump*.
+ * Layers are dumped in time-stamped directories under /data/vendor/display.
  *
  * To dump 10 frames in png format, do,
  *     adb shell setprop debug.sf.dump.png 10
