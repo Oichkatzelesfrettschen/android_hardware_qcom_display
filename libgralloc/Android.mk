@@ -22,7 +22,7 @@ LOCAL_MODULE_RELATIVE_PATH    := hw
 LOCAL_VENDOR_MODULE           := true
 LOCAL_MODULE_TAGS             := optional
 LOCAL_SHARED_LIBRARIES        := $(common_libs) libmemalloc
-LOCAL_SHARED_LIBRARIES        += libqdutils libGLESv1_CM
+LOCAL_SHARED_LIBRARIES        += libqdutils_gralloc libGLESv1_CM
 LOCAL_CFLAGS                  := $(common_flags) -DLOG_TAG=\"qdgralloc\" -Wno-sign-conversion
 LOCAL_CLANG                   := true
 LOCAL_HEADER_LIBRARIES        := display_headers generated_kernel_headers
@@ -40,7 +40,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE                  := libmemalloc
 LOCAL_VENDOR_MODULE           := true
 LOCAL_MODULE_TAGS             := optional
-LOCAL_SHARED_LIBRARIES        := $(common_libs) libqdutils libdl
+LOCAL_SHARED_LIBRARIES        := $(common_libs) libqdutils_gralloc libdl
 LOCAL_CFLAGS                  := $(common_flags) -DLOG_TAG=\"qdmemalloc\" -Wno-sign-conversion
 LOCAL_CLANG                   := true
 LOCAL_HEADER_LIBRARIES        := display_headers generated_kernel_headers
