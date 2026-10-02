@@ -5,15 +5,28 @@ include $(CLEAR_VARS)
 LOCAL_MODULE                  := libqdutils
 LOCAL_VENDOR_MODULE           := true
 LOCAL_MODULE_TAGS             := optional
-LOCAL_SHARED_LIBRARIES        := $(common_libs) libui libbinder libqservice
+LOCAL_SHARED_LIBRARIES        := $(common_libs) libui libbinder libqservice libqdutils_gralloc
 LOCAL_CFLAGS                  := $(common_flags) -DLOG_TAG=\"qdutils\" -Wno-sign-conversion
 LOCAL_CLANG                   := true
 LOCAL_HEADER_LIBRARIES        := display_headers generated_kernel_headers
-LOCAL_SRC_FILES               := profiler.cpp mdp_version.cpp \
+LOCAL_SRC_FILES               := mdp_version.cpp \
                                  idle_invalidator.cpp \
-                                 comptype.cpp qd_utils.cpp \
+                                 qd_utils.cpp \
                                  cb_utils.cpp display_config.cpp \
                                  cb_swap_rect.cpp
+include $(BUILD_SHARED_LIBRARY)
+
+# Gralloc clients need the profiler and composition type without HWC's
+# Binder service and UI dependencies in their same-process HAL namespace.
+include $(CLEAR_VARS)
+LOCAL_MODULE                  := libqdutils_gralloc
+LOCAL_VENDOR_MODULE           := true
+LOCAL_MODULE_TAGS             := optional
+LOCAL_SHARED_LIBRARIES        := liblog libutils libcutils
+LOCAL_CFLAGS                  := $(common_flags) -DLOG_TAG=\"qdutils\" -Wno-sign-conversion
+LOCAL_CLANG                   := true
+LOCAL_HEADER_LIBRARIES        := display_headers generated_kernel_headers
+LOCAL_SRC_FILES               := profiler.cpp comptype.cpp
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
