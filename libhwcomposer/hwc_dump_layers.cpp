@@ -118,7 +118,7 @@ bool HwcDebug::needToDumpLayers()
         mDumpCntLimPng = (mDumpCntLimPng < 0) ? 0: mDumpCntLimPng;
         if (mDumpCntLimPng) {
             snprintf(mDumpDirPng, sizeof(mDumpDirPng),
-                    "/data/sfdump.png.%04d.%02d.%02d.%02d.%02d.%02d",
+                    "/data/vendor/display/sfdump.png.%04d.%02d.%02d.%02d.%02d.%02d",
                     dumpTime.tm_year + 1900, dumpTime.tm_mon + 1,
                     dumpTime.tm_mday, dumpTime.tm_hour,
                     dumpTime.tm_min, dumpTime.tm_sec);
@@ -148,7 +148,7 @@ bool HwcDebug::needToDumpLayers()
         mDumpCntLimRaw = (mDumpCntLimRaw < 0) ? 0: mDumpCntLimRaw;
         if (mDumpCntLimRaw) {
             snprintf(mDumpDirRaw, sizeof(mDumpDirRaw),
-                    "/data/sfdump.raw.%04d.%02d.%02d.%02d.%02d.%02d",
+                    "/data/vendor/display/sfdump.raw.%04d.%02d.%02d.%02d.%02d.%02d",
                     dumpTime.tm_year + 1900, dumpTime.tm_mon + 1,
                     dumpTime.tm_mday, dumpTime.tm_hour,
                     dumpTime.tm_min, dumpTime.tm_sec);
@@ -393,4 +393,3 @@ void HwcDebug::getHalPixelFormatStr(int format, char pixFormatStr[])
 }
 
 } // namespace qhwc
-

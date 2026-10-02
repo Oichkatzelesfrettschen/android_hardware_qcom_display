@@ -2188,7 +2188,7 @@ void dumpBuffer(private_handle_t *ohnd, char *bufferName) {
     if (ohnd != NULL && ohnd->base) {
         char dumpFilename[PATH_MAX];
         bool bResult = false;
-        snprintf(dumpFilename, sizeof(dumpFilename), "/data/%s.%s.%dx%d.raw",
+        snprintf(dumpFilename, sizeof(dumpFilename), "/data/vendor/display/%s.%s.%dx%d.raw",
             bufferName,
             overlay::utils::getFormatString(utils::getMdpFormat(ohnd->format)),
             getWidth(ohnd), getHeight(ohnd));
